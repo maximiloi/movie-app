@@ -1,7 +1,10 @@
 import { IMG_URL } from "./constants.js";
+
 import changeColorByRating from "./changeColorByRating.js";
+import showMovie from "./showMovie.js";
 
 const moviesWrap = document.querySelector(".movie");
+const personEl = document.querySelector(".person");
 
 // показать фильмы
 export default function showMovies(movies) {

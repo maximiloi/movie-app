@@ -25,7 +25,7 @@ export default function showPage(respData, url) {
     const pagePrevious = pageEL.querySelector(".page__previous");
     pagePrevious.addEventListener("click", () => {
       let prevPage = url + "&page=" + (respData.page - 1);
-      getMovies(prevPage);
+      getData(prevPage);
     });
   }
 
@@ -38,7 +38,7 @@ export default function showPage(respData, url) {
     const pageNext = document.querySelector(".page__next");
     pageNext.addEventListener("click", () => {
       let nextPage = url + "&page=" + (respData.page + 1);
-      getMovies(nextPage);
+      getData(nextPage);
     });
   }
 }

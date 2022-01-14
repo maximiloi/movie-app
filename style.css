@@ -46,7 +46,7 @@ body {
 .movie__item {
   position: relative;
   background-color: #3c6382;
-  width: 280px;
+  width: 200px;
   border-radius: 4px;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   margin-bottom: 1rem;
