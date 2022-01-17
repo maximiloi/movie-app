@@ -263,44 +263,64 @@ body {
   cursor: pointer;
 }
 
-.cast__wrapper {
+.cast__wrapper,
+.season__wrapper {
   padding: 1rem 0;
   overflow: hidden;
   overflow-x: scroll;
 }
 
-.cast__list {
+.cast__list,
+.season__list {
   list-style-type: none;
   display: flex;
   padding: 0;
   margin: 0;
 }
 
+.season__list {
+  flex-wrap: wrap;
+}
+
 .cast__item {
   cursor: pointer;
+}
+
+.season__item {
+  display: flex;
+  width: 48%;
+  margin: 1%;
 }
 
 .cast__item:not(:last-child) {
   margin-right: 20px;
 }
 
-.cast__img {
+.cast__img,
+.season__img {
   width: 150px;
   height: 223px;
   border-radius: 4px;
 }
 
-.cast__name {
+.cast__name,
+.season__number {
   margin-top: 10px;
   margin-bottom: 0;
   color: white;
   font-size: 1.3rem;
 }
 
-.cast__role {
+.cast__role,
+.season__episode,
+.season__onair {
   margin-top: 5px;
   margin-bottom: 0;
   color: darkgray;
+}
+
+.season__inner {
+  margin-left: 10px;
 }
 
 .person {
