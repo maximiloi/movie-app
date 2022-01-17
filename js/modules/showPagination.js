@@ -1,3 +1,5 @@
+import getData from "../script.js";
+
 const pagerWrap = document.querySelector(".pager");
 
 // показать пагинацию
@@ -19,7 +21,7 @@ export default function showPage(respData, url) {
   if (respData.page > 1) {
     pageEL.insertAdjacentHTML(
       "afterbegin",
-      '<div class="text page__previous">previous page</div>'
+      '<div class="text page__previous">Предыдущая страница</div>'
     );
 
     const pagePrevious = pageEL.querySelector(".page__previous");
@@ -32,7 +34,7 @@ export default function showPage(respData, url) {
   if (respData.page < respData.total_pages) {
     pageEL.insertAdjacentHTML(
       "beforeEnd",
-      '<div class="text page__next">next page</div>'
+      '<div class="text page__next">Следующая страница</div>'
     );
 
     const pageNext = document.querySelector(".page__next");

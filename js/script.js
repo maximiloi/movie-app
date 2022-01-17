@@ -7,23 +7,24 @@ import {
 
 import showMovies from "./modules/showMovies.js";
 import showPagination from "./modules/showPagination.js";
+import searchFn from "./modules/search.js";
 
 const nowPlaying = document.querySelector(".now_playing");
 const discover = document.querySelector(".discover");
 const discoverTv = document.querySelector(".discover__tv");
 const form = document.querySelector(".search__form");
-const searchInput = document.querySelector(".search__input");
+export const searchInput = document.querySelector(".search__input");
 
 function init() {
   getData(BASE_URL + NOW_PLAYING_URL + API_KEY + LANG);
+}
 
-  async function getData(url) {
-    const resp = await fetch(url);
-    const respData = await resp.json();
+export default async function getData(url) {
+  const resp = await fetch(url);
+  const respData = await resp.json();
 
-    showMovies(respData.results);
-    showPagination(respData, url);
-  }
+  showMovies(respData.results);
+  showPagination(respData, url);
 }
 
 init();
@@ -91,18 +92,14 @@ init();
 
 // }
 
-// // поиск
-// form.addEventListener('submit', (e) => {
-//     e.preventDefault();
+// Прослушивание событий
 
-//     const searchTerm = searchInput.value;
-
-//     if (searchTerm) {
-//         getMovies(BASE_URL + SEARCH_URL + API_KEY + '&query=' + searchTerm + LANG);
-
-//         searchInput.value = '';
-//     }
-// });
+// поиск
+form.addEventListener("submit", (e) => {
+  const searchTerm = searchInput.value;
+  e.preventDefault();
+  searchFn(searchTerm);
+});
 
 // nowPlaying.addEventListener('click', () => {
 //     getMovies(BASE_URL + NOW_PLAYING_URL + API_KEY + LANG);
