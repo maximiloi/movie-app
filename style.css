@@ -10,6 +10,10 @@ body {
   margin: 0;
 }
 
+ul {
+  list-style-type: none;
+}
+
 .search {
   display: flex;
   justify-content: flex-end;
@@ -126,7 +130,6 @@ body {
 }
 
 .movie__container {
-  list-style-type: none;
   color: white;
 }
 .movie__text {
@@ -255,7 +258,6 @@ body {
 
 .type__list {
   display: flex;
-  list-style-type: none;
   color: white;
 }
 
@@ -274,7 +276,6 @@ body {
 
 .cast__list,
 .season__list {
-  list-style-type: none;
   display: flex;
   padding: 0;
   margin: 0;

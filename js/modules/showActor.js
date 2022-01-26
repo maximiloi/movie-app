@@ -1,7 +1,7 @@
 import { BASE_URL, API_KEY, LANG, IMG_URL } from "./constants.js";
 
 const moviesWrap = document.querySelector(".movie");
-const personEl = document.querySelector(".person");
+// const personEl = document.querySelector(".person");
 
 //показать биографию актера
 export default async function showActor(id) {
@@ -9,6 +9,11 @@ export default async function showActor(id) {
 
   const resp = await fetch(url);
   const respData = await resp.json();
+
+  const personEl = document.createElement("section");
+  personEl.classList.add("person");
+
+  moviesWrap.appendChild(personEl);
 
   const { profile_path, name, birthday, place_of_birth, biography } = respData;
 
