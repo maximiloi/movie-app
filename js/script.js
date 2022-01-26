@@ -26,6 +26,7 @@ function init() {
 export default async function getData(url) {
   const resp = await fetch(url);
   const respData = await resp.json();
+  console.log("respData: ", respData);
 
   showMovies(respData.results);
   showPagination(respData, url);
