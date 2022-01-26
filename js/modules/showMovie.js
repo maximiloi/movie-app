@@ -1,6 +1,7 @@
 import { BASE_URL, API_KEY, LANG, IMG_URL } from "./constants.js";
 
 import showActors from "./showActors.js";
+import showBackgroundImages from "./showBackgroundImages.js";
 
 const moviesWrap = document.querySelector(".movie");
 const pagerWrap = document.querySelector(".pager");
@@ -49,8 +50,8 @@ export default async function showMovie(id_movie) {
             </li>
             <li class="movie__text">Слоган: <span>${tagline}</span></li>
             <li class="movie__text">Жанр: <span>${genresItem.join(
-              ", "
-            )}</span></li >
+    ", "
+  )}</span></li >
             <li class="movie__text">Рейтинг: <span>${vote_average}</span></li>
             <li class="movie__text">Премьера в мире: <span>${release_date}</span></li>
             <li class="movie__text">Время: <span>${runtime} мин</span></li>
@@ -61,6 +62,7 @@ export default async function showMovie(id_movie) {
     `;
 
   showActors(id);
+  showBackgroundImages(id);
 
   moviesWrap.appendChild(movieEl);
 }
