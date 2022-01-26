@@ -1,11 +1,12 @@
 import { BASE_URL, API_KEY, LANG, IMG_URL } from "./constants.js";
 
 const moviesWrap = document.querySelector(".movie");
-// const personEl = document.querySelector(".person");
 
 //показать биографию актера
 export default async function showActor(id) {
   let url = BASE_URL + "person/" + id + API_KEY + LANG;
+
+  window.scrollTo(0, 0);
 
   const resp = await fetch(url);
   const respData = await resp.json();

@@ -4,7 +4,6 @@ import changeColorByRating from "./changeColorByRating.js";
 import showMovie from "./showMovie.js";
 
 const moviesWrap = document.querySelector(".movie");
-const personEl = document.querySelector(".person");
 
 // показать фильмы
 export default function showMovies(movies) {
@@ -17,13 +16,14 @@ export default function showMovies(movies) {
       const movieEl = document.createElement("div");
       movieEl.classList.add("movie__item");
 
-      movieEl.innerHTML = `<img src="${IMG_URL + poster_path
-        }" alt="${title}" class="movies__img" />
+      movieEl.innerHTML = `<img src="${
+        IMG_URL + poster_path
+      }" alt="${title}" class="movies__img" />
                 <div class="movie__shortinfo">
                     <h3 class="movie__title">${title || name}</h3>
                     <span class="movie__vote ${changeColorByRating(
-          vote_average
-        )}">${vote_average}</span>
+                      vote_average
+                    )}">${vote_average}</span>
                 </div>
                 <div class="movie__overview">
                     <h3 class="movie__overview--title" > Описание:</h3>
@@ -31,8 +31,9 @@ export default function showMovies(movies) {
                 </div>`;
 
       movieEl.addEventListener("click", (e) => {
+        if (document.querySelector(".person"))
+          document.querySelector(".person").remove();
         showMovie(id);
-        personEl.innerHTML = "";
       });
 
       moviesWrap.appendChild(movieEl);

@@ -12,7 +12,6 @@ import showSeries from "./modules/showSeries.js";
 import showPagination from "./modules/showPagination.js";
 import searchFn from "./modules/search.js";
 
-const personEl = document.querySelector(".person");
 const nowPlaying = document.querySelector(".now_playing");
 const discover = document.querySelector(".discover");
 const discoverTv = document.querySelector(".discover__tv");
@@ -26,7 +25,7 @@ function init() {
 export default async function getData(url) {
   const resp = await fetch(url);
   const respData = await resp.json();
-  console.log("respData: ", respData);
+  // console.log("respData: ", respData);
 
   showMovies(respData.results);
   showPagination(respData, url);
@@ -54,15 +53,18 @@ form.addEventListener("submit", (e) => {
 
 nowPlaying.addEventListener("click", () => {
   getData(BASE_URL + NOW_PLAYING_URL + API_KEY + LANG);
-  personEl.innerHTML = "";
+  if (document.querySelector(".person"))
+    document.querySelector(".person").remove();
 });
 
 discover.addEventListener("click", () => {
   getData(BASE_URL + FAV_URL + API_KEY + LANG);
-  personEl.innerHTML = "";
+  if (document.querySelector(".person"))
+    document.querySelector(".person").remove();
 });
 
 discoverTv.addEventListener("click", () => {
   getDataSeries(BASE_URL + FAV_URL_TV + API_KEY + LANG);
-  personEl.innerHTML = "";
+  if (document.querySelector(".person"))
+    document.querySelector(".person").remove();
 });
