@@ -114,6 +114,10 @@ ul {
   transition: transform 0.3s ease-in;
 }
 
+.movie__item:hover {
+  cursor: pointer;
+}
+
 .movie__item:hover .movie__overview {
   transform: translateY(0);
 }
