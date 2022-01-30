@@ -4,7 +4,6 @@ import changeColorByRating from "./changeColorByRating.js";
 import showSeriesOne from "./showSeriesOne.js";
 
 const moviesWrap = document.querySelector(".movie");
-const personEl = document.querySelector(".person");
 
 // показать фильмы
 export default function showSeries(movies) {
@@ -32,8 +31,9 @@ export default function showSeries(movies) {
                 </div>`;
 
       movieEl.addEventListener("click", (e) => {
+        if (document.querySelector(".person"))
+          document.querySelector(".person").remove();
         showSeriesOne(id);
-        personEl.innerHTML = "";
       });
 
       moviesWrap.appendChild(movieEl);

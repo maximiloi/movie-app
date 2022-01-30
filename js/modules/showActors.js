@@ -15,10 +15,15 @@ export default async function showActors(id) {
   const castWrapper = document.createElement("section");
   castWrapper.classList.add("cast__wrapper");
 
+  const castTitle = document.createElement("h2");
+  castTitle.classList.add("cast__title");
+  castTitle.innerText = "Актеры";
+
   const castList = document.createElement("ul");
   castList.classList.add("cast__list");
 
   moviesWrap.appendChild(castWrapper);
+  castWrapper.appendChild(castTitle);
   castWrapper.appendChild(castList);
 
   respData.cast.forEach((cast) => {
