@@ -1,17 +1,18 @@
 import { BASE_URL, API_KEY, LANG, IMG_URL } from "./constants.js";
 
 import showActors from "./showActors.js";
-import showBackgroundImages from "./showBackgroundImages.js";
+// import showBackgroundImages from "./showBackgroundImages.js";
 
 const moviesWrap = document.querySelector(".movie");
 const pagerWrap = document.querySelector(".pager");
 
 // показать фильм
-export default async function showMovie(id_movie) {
-  const url = BASE_URL + "movie/" + id_movie + API_KEY + LANG;
+export default async function showMovie(ids) {
+  const url = BASE_URL + "movie/" + ids + API_KEY + LANG;
 
   const resp = await fetch(url);
   const respData = await resp.json();
+  console.log('respData: ', respData);
 
   const {
     poster_path,
@@ -49,9 +50,7 @@ export default async function showMovie(id_movie) {
                 <a href="https://4g10.zbr.ovh/item/search?query=${original_title}" target="_blank">kinopub</a>
             </li>
             <li class="movie__text">Слоган: <span>${tagline}</span></li>
-            <li class="movie__text">Жанр: <span>${genresItem.join(
-    ", "
-  )}</span></li >
+            <li class="movie__text">Жанр: <span>${genresItem.join(", ")}</span></li >
             <li class="movie__text">Рейтинг: <span>${vote_average}</span></li>
             <li class="movie__text">Премьера в мире: <span>${release_date}</span></li>
             <li class="movie__text">Время: <span>${runtime} мин</span></li>
@@ -62,7 +61,7 @@ export default async function showMovie(id_movie) {
     `;
 
   showActors(id);
-  showBackgroundImages(id);
+  // showBackgroundImages(id);
 
   moviesWrap.appendChild(movieEl);
 }

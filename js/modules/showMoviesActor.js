@@ -6,4 +6,7 @@ export default async function showMoviesActor(url) {
   const respData = await resp.json();
 
   showMovies(respData.cast);
+
+  console.log('respData.cast: ', respData.cast);
+  console.log('respData.crew: ', respData.crew);
 }

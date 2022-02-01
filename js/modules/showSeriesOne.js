@@ -8,7 +8,6 @@ export default async function showSeriesOne(id_series) {
 
   const resp = await fetch(url);
   const respData = await resp.json();
-  console.log("respData: ", respData);
 
   const {
     poster_path,
@@ -51,8 +50,8 @@ export default async function showSeriesOne(id_series) {
             </li>
             <li class="movie__text">Слоган: <span>${tagline}</span></li>
             <li class="movie__text">Жанр: <span>${genresItem.join(
-              ", "
-            )}</span></li>
+    ", "
+  )}</span></li>
             <li class="movie__text">Рейтинг: <span>${vote_average}</span></li>
             <li class="movie__text">Выход в эфир: <span>${first_air_date}</span></li>
             <li class="movie__text">Время эпизода: <span>${episode_run_time} мин</span></li>
@@ -80,11 +79,10 @@ export default async function showSeriesOne(id_series) {
         <h3 class="season__number">${season.name}</h3 >
         <p class="season__episode">Кол-во серий: ${season.episode_count}</p>
         <p class="season__onair">Дата выхода: ${season.air_date}</p>
-        ${
-          season.overview
-            ? '<p class="season__onair">Описание: ' + season.overview + "</p>"
-            : ""
-        }
+        ${season.overview
+        ? '<p class="season__onair">Описание: ' + season.overview + "</p>"
+        : ""
+      }
       </div>
       `;
 

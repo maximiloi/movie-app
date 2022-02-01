@@ -33,9 +33,8 @@ export default async function showActors(id) {
     castItem.classList.add("cast__item");
 
     castItem.innerHTML = `
-            <img src=${
-              profile_path ? IMG_URL + profile_path : "img/no.jpg"
-            } alt = "" class="cast__img" />
+            <img src=${profile_path ? IMG_URL + profile_path : "img/no.jpg"
+      } alt = "" class="cast__img" />
             <p class="cast__name">${name}</p>
             <p class="cast__role">${character}</p>
     `;
@@ -44,12 +43,13 @@ export default async function showActors(id) {
 
     castItem.addEventListener("click", () => {
       showActor(id);
+
       showMoviesActor(
         "https://api.themoviedb.org/3/person/" +
-          id +
-          "/movie_credits" +
-          API_KEY +
-          LANG
+        id +
+        "/combined_credits" +
+        API_KEY +
+        LANG
       );
     });
   });
